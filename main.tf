@@ -28,14 +28,14 @@ module "k3s_cluster" {
   firewall_id         = module.firewall.firewall_id
   authorized_networks = ["0.0.0.0/0"]
   tags                = local.tags
-  applications        = "prometheus-operator"
+  applications        = ""
 
-  main_node_label         = "${local.name}-main"
+  main_node_label         = "main"
   main_node_count         = 2
   main_node_instance_size = "g4s.kube.medium"
 
   node_pools = [{
-    label      = "${local.name}-extra"
+    label      = "extra"
     node_count = 1
     region     = local.region
     size       = "g4s.kube.medium"
