@@ -7,7 +7,7 @@ module "network" {
 }
 
 module "firewall" {
-  source = "../hocknas-civo-terraform-firewall"
+  source = "git@github.com:HOCKNAS/hocknas-civo-terraform-firewall.git"
 
   firewall_name = "${local.name}-firewall"
   label         = "${local.name}-firewall"
@@ -18,7 +18,7 @@ module "firewall" {
 }
 
 module "k3s_cluster" {
-  source = "../hocknas-civo-terraform-eks"
+  source = "git@github.com:HOCKNAS/hocknas-civo-terraform-k3s.git"
 
   cluster_name        = "${local.name}-cluster"
   region              = local.region
